@@ -1,0 +1,46 @@
+- name: SG rules 
+  db:
+  - name: db-backend
+    desc: db accesspting connection from backend
+    source: backend
+    port: 3306
+  - name: db-bastion
+    desc: db accespting connection from bastion
+    source: bastion
+    port: 3306
+  backend:
+  - name: backend-frontend
+    desc: backend accespting connection from frontend
+    source: frontend
+    port: 8080
+  - name: backend-bastin
+    desc: backend accespting connection from bastin
+    source: bastin
+    port: 22
+  - name: backend-ansible
+    desc: backend accepting connection from ansible
+    source: ansible
+    port: 22
+  frontend:
+  - name: frontend-public
+    desc: frontend accespting connection from public
+    source: public
+    port: 80
+  - name: frontend-bastin
+    desc: frontend accespting connection from bastin
+    source: bastin
+    port: 22
+  - name: frontend-ansible
+    desc: frontend accespting connection from ansible
+    source: ansible
+    port: 22
+  bastin:
+  - name: bastin-public
+    desc: bastin accepting 
+    source: public   #ideally this will be home IP address
+    port: 22
+  - name: ansible-public
+    desc: ansible accepting connection from public   ##ideally this will be home IP address
+    source: public
+    port: 22
+    
